@@ -1,0 +1,135 @@
+// 1. Your custom variables and variable overwrites.
+$global-link-color: #182D4C;
+$base-heading-color: #182D4C;
+$global-primary-background: #182D4C;
+$global-font-family: Roboto, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$base-heading-font-family: $global-font-family;
+$base-heading-font-weight: 700;
+
+$secondary-color: #357d9a;
+$tertiary-color: #ddcb98;
+
+// 2. Import default variables and available mixins.
+@import "uikit/src/scss/variables-theme.scss";
+@import "uikit/src/scss/mixins-theme.scss";
+
+// 3. Your custom mixin overwrites.
+@mixin hook-card() {
+    color: #000;
+}
+
+// 4. Import UIkit.
+@import "uikit/src/scss/uikit-theme.scss";
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: #fff;
+    z-index: 100;
+
+    .uk-logo {
+        img {
+            height: 35px;
+        }
+    }
+}
+
+.sidebar {
+    position: fixed;
+    width: 300px;
+    top: 80px;
+    padding: 30px;
+}
+
+.main {
+    margin-top: 80px;
+    margin-left: 0;
+    padding: 30px 20px;
+
+    &.main--print {
+        margin-top: 0 !important;
+        font-size: 22px;
+
+        .page {
+            page-break-inside: avoid;
+            page-break-after: always;
+            position: relative;
+
+            &.page--roominfo {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 18cm;
+
+                h1 {
+                    font-size: 80px;
+                }
+
+                p {
+                    font-size: 40px;
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .participant_info {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+
+            .participant_info_item {
+                font-size: 30px;
+                font-weight: 700;
+                margin-right: 20px;
+                width: 80px;
+                height: 80px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                print-color-adjust:exact;
+                -webkit-print-color-adjust: exact;
+
+                &.participant_info_item--room {
+                    background-color: $secondary-color !important;
+                    color: #fff !important;
+                }
+
+                &.participant_info_item--booth {
+                    background-color: $tertiary-color !important;
+                    color: #000;
+                }
+            }
+
+            &.participant_info--large {
+                .participant_info_item {
+                    width: 100px;
+                    height: 100px;
+                    font-size: 40px;
+                }
+            }
+        }
+
+        .section {
+            break-inside: avoid;
+        }
+
+        h1 {
+            font-size: 50px;
+            color: $base-heading-color !important;
+            margin-top: 0;
+        }
+
+        h2 {
+            font-size: 35px;
+            margin: 1em 0 0;
+        }
+
+        p {
+            margin: 0 0 1em;
+        }
+    }
+}

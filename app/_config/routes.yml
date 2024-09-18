@@ -1,0 +1,9 @@
+---
+Name: approutes
+After: framework/_config/routes#coreroutes
+---
+Silverstripe\Control\Director:
+  rules:
+    '//contacts/$Action/$ID': App\Controllers\ContactManageController
+    '//events/$Action/$ID': App\Controllers\EventManageController
+    '': App\Controllers\ContactManageController

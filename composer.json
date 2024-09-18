@@ -1,0 +1,46 @@
+{
+    "name": "atwx/silverstripe-datamanager-demo",
+    "type": "silverstripe-recipe",
+    "description": "A demo for datamanager",
+    "require": {
+        "php": "^8.2",
+        "silverstripe/recipe-plugin": "~2.0.0@stable",
+        "silverstripe/assets": "~2.1.0@stable",
+        "silverstripe/config": "~2.1.0@stable",
+        "silverstripe/framework": "~5.1.0@stable",
+        "silverstripe/mimevalidator": "~3.0.0@stable",
+        "silverstripe/admin": "^2.1",
+        "silverstripe/login-forms": "^5.1",
+        "phpoffice/phpspreadsheet": "^1.29",
+        "atwx/silverstripe-vitehelper": "0.1.0",
+        "atwx/silverstripe-datamanager": "dev-main"
+    },
+    "require-dev": {
+        "silverleague/ideannotator": "^3"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/src/"
+        }
+    },
+    "extra": {
+        "expose": [
+            "app/client/dist",
+            "app/client/images"
+        ],
+        "resources-dir": "_resources"
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev",
+    "scripts": {
+        "lint": "vendor/bin/phpcs",
+        "fix": "vendor/bin/phpcbf"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "silverstripe/recipe-plugin": true,
+            "silverstripe/vendor-plugin": true
+        }
+    }
+}
