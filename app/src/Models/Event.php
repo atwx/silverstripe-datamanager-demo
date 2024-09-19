@@ -12,6 +12,7 @@ use SilverStripe\View\ArrayData;
  *
  * @property string $EventDate
  * @property string $Title
+ * @method \SilverStripe\ORM\ManyManyList|\App\Models\Contact[] Contacts()
  * @mixin \Atwx\SilverstripeDataManager\DataManagerExtension
  */
 class Event extends DataObject
@@ -22,6 +23,10 @@ class Event extends DataObject
     ];
 
     private static $has_many = [
+    ];
+
+    private static $belongs_many_many = [
+        "Contacts" => Contact::class,
     ];
 
     private static $table_name = "Event";

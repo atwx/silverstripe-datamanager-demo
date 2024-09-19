@@ -25,7 +25,7 @@ class EventManageController extends BaseController
 {
     private static $managed_model = Event::class;
     private static $url_segment = 'events';
-    private static $title = 'Infotage';
+    private static $title = 'Events';
     private static $description = '';
 
     private static $allowed_actions = [

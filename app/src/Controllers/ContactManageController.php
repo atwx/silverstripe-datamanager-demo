@@ -13,6 +13,6 @@ class ContactManageController extends BaseController
 {
     private static $managed_model = Contact::class;
     private static $url_segment = 'contacts';
-    private static $title = 'Kontakte';
-    private static $description = 'Verwaltung der Kontakte';
+    private static $title = 'Contacts';
+    private static $description = 'Management of Contacts';
 }

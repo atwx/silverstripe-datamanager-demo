@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Atwx\SilverstripeDataManager\DataManagerExtension;
+use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
@@ -21,6 +22,7 @@ use SilverStripe\Security\Permission;
  * @property string $Mobile
  * @property string $Company
  * @property string $JobDescription
+ * @method \SilverStripe\ORM\ManyManyList|\App\Models\Event[] Events()
  * @mixin \Atwx\SilverstripeDataManager\DataManagerExtension
  */
 class Contact extends DataObject
@@ -43,6 +45,10 @@ class Contact extends DataObject
     private static $has_many = [
     ];
 
+    private static $many_many = [
+        "Events" => Event::class,
+    ];
+
     private static $owns = [
     ];
 
@@ -56,6 +62,7 @@ class Contact extends DataObject
         "JobTitle" => "Job Title",
         "Company" => "Company",
         "FormatLastEdited" => "Updated",
+        "EventSummary" => "Events",
     ];
 
     private static $field_labels = [
@@ -88,6 +95,11 @@ class Contact extends DataObject
         return $this->dbObject('LastEdited')->Format('dd.MM.');
     }
 
+    public function EventSummary()
+    {
+        return join(', ', $this->Events()->column("Title"));
+    }
+
     public function dataManagerFormFields()
     {
         $fields = $this->scaffoldFormFields();
@@ -97,16 +109,18 @@ class Contact extends DataObject
             "Prof." => "Prof.",
             "Prof. Dr." => "Prof. Dr.",
         ]));
+        $years = Event::get()->sort('EventDate', 'DESC')->map('ID', 'Title');
+        $fields->push(CheckboxSetField::create("Events", "Events", $years));
         return $fields;
     }
 
     public function getDataManagerFilterFields()
     {
-//        $years = Event::get()->sort('EventDate', 'DESC')->map('ID', 'YearSummary');
+        $years = Event::get()->sort('EventDate', 'DESC')->map('ID', 'Title');
         return FieldList::create(
             TextField::create("Query", "Name"),
-//            DropdownField::create("Year", "Jahr", $years)
-//                ->setEmptyString("Alle")
+            DropdownField::create("Event", "Events", $years)
+                ->setEmptyString("All")
         );
     }
 
@@ -119,10 +133,9 @@ class Contact extends DataObject
             ]);
         }
 
-        if ($q = $request->getVar("Year")) {
+        if ($q = $request->getVar("Event")) {
             $query = $query->filter([
-                "Attendances.EventID:ExactMatch" => $q,
-                "Attendances.Status:ExactMatch" => "participant",
+                "Events.ID" => $q,
             ]);
         }
 
