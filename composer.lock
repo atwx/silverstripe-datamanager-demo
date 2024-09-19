@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "356f7df57b51239860f38adea0c07601",
+    "content-hash": "c4298ab3476ed97a17e673293b618dfc",
     "packages": [
         {
             "name": "atwx/silverstripe-datamanager",
-            "version": "dev-main",
+            "version": "v0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/atwx/silverstripe-datamanager.git",
-                "reference": "e13975ecd83f086f36c8dc5a4d7faf6b8453efc3"
+                "reference": "0989481028718ad1e8122dc9cb0291697192c646"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/atwx/silverstripe-datamanager/zipball/e13975ecd83f086f36c8dc5a4d7faf6b8453efc3",
-                "reference": "e13975ecd83f086f36c8dc5a4d7faf6b8453efc3",
+                "url": "https://api.github.com/repos/atwx/silverstripe-datamanager/zipball/0989481028718ad1e8122dc9cb0291697192c646",
+                "reference": "0989481028718ad1e8122dc9cb0291697192c646",
                 "shasum": ""
             },
             "require": {
@@ -28,7 +28,6 @@
                 "phpunit/phpunit": "^9.5",
                 "squizlabs/php_codesniffer": "^3.7"
             },
-            "default-branch": true,
             "type": "silverstripe-vendormodule",
             "extra": {
                 "expose": [
@@ -52,9 +51,9 @@
             ],
             "support": {
                 "issues": "https://github.com/atwx/silverstripe-datamanager/issues",
-                "source": "https://github.com/atwx/silverstripe-datamanager/tree/v0.1"
+                "source": "https://github.com/atwx/silverstripe-datamanager/tree/v0.2"
             },
-            "time": "2024-07-11T08:51:20+00:00"
+            "time": "2024-09-19T08:29:28+00:00"
         },
         {
             "name": "atwx/silverstripe-vitehelper",
@@ -5207,8 +5206,7 @@
         "silverstripe/assets": 0,
         "silverstripe/config": 0,
         "silverstripe/framework": 0,
-        "silverstripe/mimevalidator": 0,
-        "atwx/silverstripe-datamanager": 20
+        "silverstripe/mimevalidator": 0
     },
     "prefer-stable": true,
     "prefer-lowest": false,

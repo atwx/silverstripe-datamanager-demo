@@ -32,8 +32,8 @@
                         <td>
                             <a href="$Top.Link("delete")/$ID?BackURL=$Top.Link"
                                class="uk-icon-button"
-                               title="Löschen"
-                               onclick="return confirm('Sind Sie sicher?')"
+                               title="Delete"
+                               onclick="return confirm('Are you sure?')"
                                uk-icon="icon: trash"></a>
                         </td>
                     <% end_if %>

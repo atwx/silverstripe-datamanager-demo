@@ -13,7 +13,7 @@
         "silverstripe/login-forms": "^5.1",
         "phpoffice/phpspreadsheet": "^1.29",
         "atwx/silverstripe-vitehelper": "0.1.0",
-        "atwx/silverstripe-datamanager": "dev-main"
+        "atwx/silverstripe-datamanager": "0.2.0"
     },
     "require-dev": {
         "silverleague/ideannotator": "^3"
